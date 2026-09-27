@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Albert is a Computer Science student at BINUS University specializing in AI, machine learning, and data science." />
+    <title>Albert — AI & Data Science</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <canvas id="neural-canvas" aria-hidden="true"></canvas>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Primary navigation">
+        <a class="logo" href="#top" aria-label="Albert home">Alb</a>
+        <div class="nav-links">
+          <a href="#about">About</a><a href="#projects">Projects</a><a href="#journey">Journey</a><a href="#stack">Stack</a><a href="#connect">Connect</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero container" aria-labelledby="hero-title">
+        <h1 id="hero-title" class="hero-name" aria-label="Albert Mario Laurent"><span>Albert</span> <span>Mario</span> <span>Laurent</span></h1>
+        <p class="hero-kicker reveal"><em>Welcome to my portfolio</em></p>
+        <p class="hero-tagline reveal">Exploring AI, machine learning <span>&amp;</span> data science.</p>
+        <div class="hero-icons reveal" aria-label="Areas of interest">
+          <span class="icon-button" aria-label="Artificial intelligence"><svg class="icon-glyph" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.1c-1.5-2.2-4.8-1.5-4.8 1.1-2.2-.1-3.4 2.4-2.1 4.1-1.3 1.7-.7 4.2 1.3 5-.2 2.3 2.2 3.7 4.1 2.5 1-.6 1.5-1.5 1.5-2.7V5.1Zm0 0c1.5-2.2 4.8-1.5 4.8 1.1 2.2-.1 3.4 2.4 2.1 4.1 1.3 1.7.7 4.2-1.3 5 .2 2.3-2.2 3.7-4.1 2.5-1-.6-1.5-1.5-1.5-2.7V5.1Z"/><path d="M8.5 8.2c1.2 0 1.1 1.5 2.3 1.5s1.2-1.5 2.4-1.5m-4.7 5.5c1.2 0 1.1 1.5 2.3 1.5s1.2-1.5 2.4-1.5"/></svg></span>
+          <span class="icon-button" aria-label="Computing"><svg class="icon-glyph" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="1"/><rect x="10" y="10" width="4" height="4" rx=".5"/><path d="M9 3v4m6-4v4M9 17v4m6-4v4M3 9h4m-4 6h4m10-6h4m-4 6h4"/></svg></span>
+          <span class="icon-button" aria-label="Processing power"><svg class="icon-glyph" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m13.5 2.5-8 10h5l-.5 9 8.5-12h-5l.5-7Z"/></svg></span>
+        </div>
+        <p class="hero-school reveal">3rd Year Computer Science Student @ BINUS University</p>
+      </section>
+
+      <section id="about" class="section container" aria-labelledby="about-title">
+        <div class="about-grid">
+          <div class="avatar-wrap reveal"><div class="avatar-ring"><div class="avatar">
+            <img src="images/Alb.jpeg"/></div></div></div>
+          <div class="about-copy reveal">
+            <h2 id="about-title" class="gradient-heading">About Me</h2>
+            <p>I’m Albert, a Computer Science student at BINUS University specializing in Artifical Intelligence. I am passionate about building intelligent systems. My interests span machine learning, computer vision, and deep learning technologies.</p>
+            <div class="chips"><span>AI / ML</span><span>Always learning</span></div>
+            <blockquote>“The interesting part is rarely just the answer. It’s understanding why.”</blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section container" aria-labelledby="projects-title">
+        <div class="section-heading projects-heading reveal"><h2 id="projects-title" class="gradient-heading">Featured Projects</h2><p>Projects that I've made so far, with more to come as I keep building.</p></div>
+        <div id="project-grid" class="project-grid"></div>
+      </section>
+
+      <section id="journey" class="section container" aria-labelledby="journey-title">
+        <div class="section-heading reveal"><h2 id="journey-title" class="gradient-heading teal-heading">Experience</h2></div>
+        <div id="timeline" class="timeline"></div>
+      </section>
+
+      <section id="stack" class="section container" aria-labelledby="stack-title">
+        <div class="section-heading reveal"><h2 id="stack-title" class="gradient-heading">Technical Skills</h2></div>
+        <div id="stack-grid" class="stack-grid"></div>
+      </section>
+
+      <section id="connect" class="section container connect" aria-labelledby="connect-title">
+        <div class="connect-grid">
+          <div class="connect-copy reveal"><h2 id="connect-title" class="gradient-heading">Contact Me</h2></div>
+          <div class="contact-links reveal">
+            <a href="mailto:albertmariolaurent735@gmail.com">
+              <span class="contact-label"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</span>
+              <span class="contact-detail">albertmariolaurent735@gmail.com</span> ↗
+            </a>
+            <a href="https://github.com/Alb138" target="_blank" rel="noreferrer">
+              <span class="contact-label"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297a12 12 0 0 0-3.79 23.385c.6.111.82-.261.82-.577v-2.234c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.304-5.467-1.333-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 0 1 6.006 0c2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.12 3.176.77.84 1.235 1.91 1.235 3.221 0 4.61-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.216.694.825.576A12.001 12.001 0 0 0 12 .297Z"/></svg>GitHub</span>
+              <span class="contact-detail">github.com/Alb138</span> ↗
+            </a>
+            <a href="https://www.linkedin.com/in/albert-mario-laurent" target="_blank" rel="noreferrer">
+              <span class="contact-label"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM8 18H5V9h3v9ZM6.5 7.75a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5ZM19 18h-3v-4.38c0-1.04-.02-2.38-1.45-2.38-1.45 0-1.67 1.13-1.67 2.3V18h-3V9h2.88v1.23h.04c.4-.71 1.38-1.45 2.84-1.45C18.68 8.78 19 10.7 19 13.2V18Z"/></svg>LinkedIn</span>
+              <span class="contact-detail">linkedin.com/in/albert-mario-laurent</span> ↗
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer container"><span>© 2026 Albert</span><span>Engineering the future with AI.</span></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
