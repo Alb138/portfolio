@@ -1,13 +1,54 @@
 const projects = [
-  { title: "Heart Disease Detection Using SVM", description: "Clinical decision support system for early heart disease risk detection using SVM-RBF.", tags: ["Machine Learning"], images: ["images/Heart Disease Project1.png", "images/Heart Disease Project2.png"], github: "https://github.com/Alb138/heart-disease-detection-ml", demo: "https://drive.google.com/file/d/1uHlkDhq2jFR8gBvE561K1Xx5UbsMxRoo/view?usp=sharing" },
-  { title: "Face Attendance System using Computer Vision and Flask", description: "Face Attendance System using Computer Vision and Flask. The system performs face registration, face recognition, and attendance tracking using OpenCV (LBPH Face Recognizer), Flask backend, SQLite database, and webcam integration.", tags: ["Computer Vision"], images: ["images/Computer Vision Project1.png", "images/Computer Vision Project2.png", "images/Computer Vision Project3.png", "images/Computer Vision Project4.png"], github: "https://github.com/stephaniee06/attendance-face-recognition.git", demo: "https://drive.google.com/file/d/1yIAH4NULWNdoLlD8ft3EfRnmaJjDx99n/view?usp=sharing" },
-  { title: "RiverGuard: Object Detection AI For Plastic Waste Detection", description: "An object detection AI project focused on identifying plastic waste.", tags: ["Object Detection", "AI", "Plastic Waste"], images: ["images/AOLAI1.png", "images/AOLAI2.png"], github: "", demo: "https://drive.google.com/file/d/1r0bpVrC-Xd80xNsgBMa694MyauwvBOxU/view?usp=sharing" },
+  { title: "Heart Disease Detection Using SVM", description: "Clinical decision support system for early heart disease risk detection using SVM-RBF.", tags: ["Python", "Streamlit", "Scikit-learn", "Pandas", "NumPy", "Joblib"], images: ["images/Heart Disease Project1.png", "images/Heart Disease Project2.png"], github: "https://github.com/Alb138/heart-disease-detection-ml", demo: "https://drive.google.com/file/d/1uHlkDhq2jFR8gBvE561K1Xx5UbsMxRoo/view?usp=sharing" },
+  { title: "Face Attendance System using Computer Vision and Flask", description: "Face Attendance System using Computer Vision and Flask. The system performs face registration, face recognition, and attendance tracking using OpenCV (LBPH Face Recognizer), Flask backend, SQLite database, and webcam integration.", tags: ["Python", "Flask", "OpenCV", "NumPy", "SQLite", "React", "SQLAlchemy"], images: ["images/Computer Vision Project1.png", "images/Computer Vision Project2.png", "images/Computer Vision Project3.png", "images/Computer Vision Project4.png"], github: "https://github.com/stephaniee06/attendance-face-recognition.git", demo: "https://drive.google.com/file/d/1yIAH4NULWNdoLlD8ft3EfRnmaJjDx99n/view?usp=sharing" },
+  { title: "RiverGuard: Object Detection AI For Plastic Waste Detection", description: "An object detection AI project focused on identifying plastic waste.", tags: ["Python", "YOLO11", "OpenCV", "NumPy", "PyTorch"], images: ["images/AOLAI1.png", "images/AOLAI2.png"], github: "", demo: "https://drive.google.com/file/d/1r0bpVrC-Xd80xNsgBMa694MyauwvBOxU/view?usp=sharing" },
 ];
 
 const journey = [
-  ["Jun 2024 – Jul 2024", "Application Support Staff", "PT. Wynacom Unitama Sejahtera · Full-time · North Jakarta, Jakarta, Indonesia · On-site · Crystal Reports"],
-  ["Dec 2025 – Present", "Human Capital", "Data Science Club BINUS University"],
-  ["Dec 2025 – Present", "IT Support", "Binus Student Learning Community"],
+  {
+    organization: "BINUS Student Learning Community",
+    roles: [
+      {
+        date: "December 2025 — Present",
+        title: "IT Support",
+        description: "Designed the student organization's website in Figma, shaping its layout and visual structure before development. I also managed day-to-day website content and features, helping keep information organized and functioning, and supported the team in publishing and maintaining updates online.",
+      },
+      {
+        date: "May 2026 — July 2026",
+        title: "Design Division Committee",
+        event: "Pengabdian Kepada Masyarakat BSLC 2026",
+        description: "Designed the event poster as a central visual for promoting Pengabdian Kepada Masyarakat BSLC 2026. I also created Instagram feed graphics in Canva to share event information on social media and documented the activities for the organization's records and future reference.",
+      },
+      {
+        date: "June 2026 — November 2026",
+        title: "Event Division Committee",
+        event: "Study2Challenge BSLC 2026",
+        description: "Prepared a media partner proposal that outlined the event concept, benefits, and partnership opportunity to support outreach. I also arranged the technical meeting rundown so participants could follow the session timing and responsibilities, and assisted with online meetings to support coordination and smooth-running sessions.",
+      },
+      {
+        date: "May 2026 — July 2026",
+        title: "Publication Division Committee",
+        event: "Career Preparation BSLC 2026",
+        description: "Contacted and coordinated with media partners to help extend the event's publication reach. I also wrote the official event article, summarizing its purpose, activities, and key takeaways, and worked with the publication team to keep communications consistent and ready for release.",
+      },
+      {
+        date: "June 2026 — September 2026",
+        title: "Design Division Committee",
+        event: "Welcoming Party BSLC 2026",
+        description: "Designed a reusable Instagram Story template to give the event's social media promotion a consistent format. I also created Canva certificates to recognize organizers and speakers, keeping the designs aligned with the Welcoming Party's event theme.",
+      },
+    ],
+  },
+  {
+    organization: "Data Science Club BINUS University",
+    roles: [
+      {
+        date: "December 2025 — Present",
+        title: "Human Capital",
+        description: "Managed the student member database, keeping member information organized and accessible to the Human Capital division. I used the database to organize birthday greetings that support engagement and a sense of community, and collaborated with the division to maintain accurate, up-to-date records.",
+      },
+    ],
+  },
 ];
 
 const stack = {
@@ -63,12 +104,15 @@ document.querySelectorAll(".project-carousel").forEach((carousel) => {
 });
 
 const timeline = document.querySelector("#timeline");
-journey.forEach((entry) => {
-  const date = entry[0];
-  const title = entry[1];
-  const description = entry[2];
-  timeline.insertAdjacentHTML("beforeend", `<article class="timeline-item reveal"><span class="timeline-dot" aria-hidden="true"></span><div class="timeline-card glass-card"><time>${date}</time><h3>${title}</h3><p>${description}</p></div></article>`);
+const experienceSections = journey.map((section) => {
+  const roles = section.roles.map((role) => {
+    const event = role.event ? `<p class="experience-event">${role.event}</p>` : "";
+    return `<article class="experience-role"><time>${role.date}</time><h3>${role.title}</h3>${event}<p>${role.description}</p></article>`;
+  }).join("");
+  return `<section class="experience-section"><div class="experience-organization"><h3>${section.organization}</h3></div><div class="experience-roles">${roles}</div></section>`;
 });
+timeline.classList.add("experience-layout", "reveal");
+timeline.insertAdjacentHTML("beforeend", experienceSections.join(""));
 
 const stackGrid = document.querySelector("#stack-grid");
 Object.entries(stack).forEach((entry) => {
@@ -222,33 +266,33 @@ window.addEventListener("resize", () => {
   seedNodes();
   if (reduceMotion) drawNetwork(performance.now());
 });
-canvas.addEventListener("mousemove", (event) => {
+function updatePointerPosition(event) {
   const bounds = canvas.getBoundingClientRect();
   pointer.mx = (event.clientX - bounds.left) * pixelRatio;
   pointer.my = (event.clientY - bounds.top) * pixelRatio;
+}
+
+function clearPointerPosition() {
+  pointer.mx = -9999;
+  pointer.my = -9999;
+}
+
+window.addEventListener("pointermove", (event) => {
+  if (event.pointerType === "mouse") updatePointerPosition(event);
 }, { passive: true });
-canvas.addEventListener("mouseleave", () => { pointer.mx = -9999; pointer.my = -9999; });
-window.addEventListener("mousemove", (event) => {
-  const bounds = canvas.getBoundingClientRect();
-  const inside = event.clientX >= bounds.left && event.clientX <= bounds.right
-    && event.clientY >= bounds.top && event.clientY <= bounds.bottom;
-  if (inside) {
-    pointer.mx = (event.clientX - bounds.left) * pixelRatio;
-    pointer.my = (event.clientY - bounds.top) * pixelRatio;
-  } else {
-    pointer.mx = -9999;
-    pointer.my = -9999;
-  }
+window.addEventListener("pointerdown", (event) => {
+  if (event.pointerType === "touch") updatePointerPosition(event);
 }, { passive: true });
-window.addEventListener("mouseleave", () => { pointer.mx = -9999; pointer.my = -9999; });
-window.addEventListener("scroll", () => {
-  const timelineElement = document.querySelector(".timeline");
-  if (timelineElement) {
-    const bounds = timelineElement.getBoundingClientRect();
-    const progressValue = Math.max(0, Math.min(100, ((window.innerHeight * 0.65 - bounds.top) / bounds.height) * 100));
-    timelineElement.style.setProperty("--timeline-progress", `${progressValue}%`);
-  }
+window.addEventListener("pointermove", (event) => {
+  if (event.pointerType === "touch" && event.buttons) updatePointerPosition(event);
 }, { passive: true });
+window.addEventListener("pointerup", (event) => {
+  if (event.pointerType === "touch") clearPointerPosition();
+});
+window.addEventListener("pointercancel", (event) => {
+  if (event.pointerType === "touch") clearPointerPosition();
+});
+window.addEventListener("mouseleave", clearPointerPosition);
 resizeCanvas();
 seedNodes();
 requestAnimationFrame(drawNetwork);
