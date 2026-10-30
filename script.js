@@ -54,7 +54,9 @@ const journey = [
 const stack = {
   Languages: ["Python", "SQL", "Java", "C"],
   "AI / ML Frameworks": ["TensorFlow", "PyTorch", "Scikit-learn", "HuggingFace"],
+  "Computer Vision": ["OpenCV", "YOLO (Ultralytics)"],
   "Data & Visualization": ["Pandas", "NumPy", "Matplotlib"],
+  "Web & Databases": ["Streamlit", "Flask", "React", "SQLite", "SQLAlchemy"],
   Tools: ["Git", "Jupyter", "Figma"],
 };
 
