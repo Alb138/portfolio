@@ -4,6 +4,21 @@ const projects = [
   { title: "RiverGuard: Object Detection AI For Plastic Waste Detection", description: "Detects floating plastic in river photos, videos and webcam feeds with a fine-tuned YOLO11 model, plus a second classifier that spots trash too dense to count. When a river passes its safe limit, it sends a Telegram early-warning alert with an evidence photo.", tags: ["Python", "YOLO11", "PyTorch", "OpenCV", "ONNX Runtime", "Streamlit", "Telegram Bot API"], images: ["images/AOLAI1.png", "images/AOLAI2.png"], github: "https://github.com/Alb138/RiverGuard", demo: "https://riverguard.streamlit.app/" },
 ];
 
+const awards = [
+  {
+    title: "Rumpun Penalaran 2026 Data Science Competition (EVOLVE)",
+    placement: "2nd Place",
+    date: "Oct 2026",
+    points: [
+      "Fine-tuned open LLMs (Qwen2.5-7B, Qwen3-8B) with QLoRA on Kaggle GPUs to classify the sentiment of ESG-related restaurant reviews, reaching 0.837 macro F1 on the private leaderboard",
+      "Compared TF-IDF baselines, DeBERTa and LLMs with 5-fold cross-validation, then combined three LLM runs and tuned class weights with nested cross-validation",
+      "Turned the predictions into recommendations for restaurant owners and presented them to the judges in the final round",
+    ],
+    images: ["images/EVOLVE Award1.jpg", "images/EVOLVE Award2.jpg"],
+    alts: ["Receiving the 2nd place award on stage at the EVOLVE Data Science Competition", "Certificate of achievement for 2nd place in the EVOLVE Data Science Competition"],
+  },
+];
+
 const journey = [
   {
     organization: "BINUS Student Learning Community",
@@ -60,13 +75,19 @@ const stack = {
   Tools: ["Git", "Jupyter", "Figma"],
 };
 
+// Image carousel (or single image) shared by project and award cards. `alts` gives each image its own description.
+function cardMedia(item, label) {
+  const alt = (index) => (item.alts && item.alts[index]) || `${item.title} ${label} ${index + 1} of ${item.images.length}`;
+  return item.images && item.images.length > 1
+    ? `<div class="project-carousel" role="region" aria-label="${item.title} ${label}s"><div class="project-carousel-track" tabindex="0">${item.images.map((image, index) => `<img src="${image}" alt="${alt(index)}" loading="lazy">`).join("")}</div><button class="project-carousel-control previous" type="button" aria-label="Previous image">‹</button><button class="project-carousel-control next" type="button" aria-label="Next image">›</button></div>`
+    : item.image
+      ? `<img src="${item.image}" alt="${item.title} ${label}" loading="lazy">`
+      : `<div class="project-image-placeholder" role="img" aria-label="Image placeholder for ${item.title}">Project image</div>`;
+}
+
 const projectGrid = document.querySelector("#project-grid");
 projects.forEach((project) => {
-  const projectImage = project.images && project.images.length > 1
-    ? `<div class="project-carousel" role="region" aria-label="${project.title} screenshots"><div class="project-carousel-track" tabindex="0">${project.images.map((image, index) => `<img src="${image}" alt="${project.title} screenshot ${index + 1} of ${project.images.length}" loading="lazy">`).join("")}</div><button class="project-carousel-control previous" type="button" aria-label="Previous image">‹</button><button class="project-carousel-control next" type="button" aria-label="Next image">›</button></div>`
-    : project.image
-      ? `<img src="${project.image}" alt="${project.title} project screenshot" loading="lazy">`
-      : `<div class="project-image-placeholder" role="img" aria-label="Image placeholder for ${project.title}">Project image</div>`;
+  const projectImage = cardMedia(project, "screenshot");
   const projectLinks = [
     ["GitHub repo", project.github],
     ["Live demo", project.demo],
@@ -75,6 +96,11 @@ projects.forEach((project) => {
     : `<span class="project-link-placeholder">${entry[0]} ↗</span>`)
     .join("");
   projectGrid.insertAdjacentHTML("beforeend", `<article class="project-card glass-card reveal"><span class="card-number">0${projects.indexOf(project) + 1}</span><figure class="project-media">${projectImage}</figure><h3>${project.title}</h3><p>${project.description}</p><div class="tags">${project.tags.map((tag) => `<span>${tag}</span>`).join("")}</div><div class="project-links">${projectLinks}</div></article>`);
+});
+
+const awardGrid = document.querySelector("#award-grid");
+awards.forEach((award) => {
+  awardGrid.insertAdjacentHTML("beforeend", `<article class="project-card award-card glass-card reveal"><figure class="project-media">${cardMedia(award, "photo")}</figure><p class="award-meta"><span class="award-place">${award.placement}</span><time>${award.date}</time></p><h3>${award.title}</h3><ul class="award-points">${award.points.map((point) => `<li>${point}</li>`).join("")}</ul></article>`);
 });
 
 document.querySelectorAll(".project-carousel").forEach((carousel) => {
