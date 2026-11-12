@@ -116,3 +116,6 @@ main,.footer{position:relative;z-index:1}
 .award-points{margin:14px 0 0;padding-left:18px;color:var(--mute);font-size:12px;line-height:1.6}
 .award-points li+li{margin-top:8px}
 @media(max-width:700px){.award-points{font-size:13px}}
+.project-card .media-credit{margin:-14px 0 18px;color:var(--mute);font:9px/1.6 var(--mono)}
+.media-credit a{text-decoration:underline;text-underline-offset:2px}
+.media-credit a:hover{color:var(--accent2)}
